@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+  <script  src="/app.js"></script>
+</head>
+
+<body>
+
+     <!--  Navbar -->
+   <nav class="navbar " style="background-color: #337ab7; ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/ads" style="color: white;">OLX</a>
+    </div>
+  <div class="collapse navbar-collapse" id="myNavbar">
+  
+      <ul class="nav navbar-nav navbar-right" >
+        <li><a href="/post" style="color: white; " >Post Your ads</a></li>
+          <li><a href="/userprofile" style="color: white; ">MyProfile</a></li>
+       
+       </ul>
+    </div>
+  </div>
+</nav>
+
+<!--  Accessories data -->
+
+  <div class="row">
+    <div class="container">
+     
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <div class="col-sm-12">
+           <form method="post" action="/attributes/cars" enctype="multipart/form-data">
+            <div class="container">
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well well-sm">
+          <form class="form-horizontal" action="" method="post">
+          <fieldset>
+               <legend class="text-center" style="color:grey;">POST YOUR AD</legend>
+    
+            <!-- Name input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Name</label>
+              <div class="col-md-9">
+                <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+                <br>
+              </div>
+            </div>
+    
+            <!-- Email input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="email">Your E-mail</label>
+              <div class="col-md-9">
+               <label class="checkbox-inline">
+                      <select id="cars" name="cars" class="form-control" >
+                          <option value="toyota" name="cars">Toyota</option>
+                          <option value="bmw" name="cars">BMW</option>
+                          <option value="mercedes-slk" name="cars">Mercedes SLK</option>
+                          <option value="changan" name="cars">changan</option>
+                           <option value="honda" name="cars">honda</option>
+                            <option value="isuzu" name="cars">Isuzu</option>
+                             <option value="nisan" name="cars">nisan</option>
+                              <option value="suzuki" name="cars">Suzuki</option>
+                              <option value="audi" name="cars">Audi</option>
+                        </select>
+                        <br>
+                 </label>
+                 <br>
+              </div>
+            </div>
+    
+            <!-- Message body -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Title</label>
+              <div class="col-md-9">
+                <input class="form-control" id="message" name="title" placeholder="Title" rows="5"/>
+                <br>
+              </div>
+            </div>
+
+              <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Description</label>
+              <div class="col-md-9">
+                <input class="form-control" id="message" name="description" placeholder="description" rows="5"/>
+                <br>
+              </div>
+            </div>
+    
+
+      <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Title</label>
+              <div class="col-md-9">
+                <input class="form-control" id="message" name="price" type="number" placeholder="Title" rows="5"/>
+                <br>
+              </div>
+            </div>
+
+             <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Title</label>
+              <div class="col-md-9">
+              <label class="checkbox-inline">
+                      <select id="fuel" name="fuel" class="form-control">
+                          <option value="cng" name="fuel" >CNG</option>
+                          <option value="diesel" name="fuel" >Diesel</option>
+                          <option value="lpg" name="fuel" >LPG</option>
+                          <option value="petrol" name="fuel" >Petrol</option>
+                        </select>
+                 </label>
+              <br> <br>
+                <br>
+              </div>
+            </div>
+
+ <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Title</label>
+              <div class="col-md-9">
+                  <input  type="file" name="blog1" />
+                <br>
+              </div>
+            </div>
+
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+      </form>
+        </div>  
+  </div>
+  </div>
+     <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+   
+    </body>
+</html>

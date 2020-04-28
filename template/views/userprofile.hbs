@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+      <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!--  Navbar -->
+   <nav class="navbar " style="background-color: #337ab7; margin-top: -57px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/ads" style="color: white;">OLX</a>
+     </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+  
+      <ul class="nav navbar-nav navbar-right" >
+        <li><a href="/post" style="color: white; " >Post Your ads</a></li>
+          <li><a href="/userprofile" style="color: white; ">MyProfile</a></li>
+       
+       </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="col-sm-8" >
+  <h1>Your Profile</h1>
+  <form action="" method="#" >
+     <div class="form-group">
+          <label for="id">Id</label>
+          <input class="form-control" id="profile-id" type="text" name="id" style="width:300px" disabled />
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input class="form-control" id="profile-name" type="text" name="Name" style="width:300px"  />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" id="profile-email" type="email"  name="Email" style="width:300px" />
+       
+             <p style="font-size: 12px;">   We won't reveal your email to anyone else nor use it to send you spam</p>
+    
+        </div>
+         <div class="form-group">
+            <label for="cnic">cinc</label>
+            <input class="form-control" id="profile-cnic" type="text" name="cinc" style="width:300px"  />
+          </div>
+        <div class="form-group">
+          <label for="mobile">Mobile No#</label>
+          <input class="form-control" id="profile-phone" type="number" style="width:300px"  />
+               <p style="font-size: 12px;">You have verified your phone. It is important to allow us to securely communicate with you.</p>
+    
+        </div>
+           <input type="button" class="btn btn-primary" id="edit-btn"  value="submit" onclick="update()" />
+  </form>
+    </div>
+  <div class="col-sm-4">
+     <div class="form-group">
+          <h2 for="pic"> Profilepic</h2>
+          <div class="form-control" id="profile-pic"  style="width:300px ; border: white;" ></div>
+        </div>
+  </div>
+ 
+</div>
+ <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+   
+</body>
+
+ <script>
+  //  console.log(document.getElementById('hello'))
+  var user= JSON.parse(localStorage.getItem('user')) 
+  //console.log(user);
+
+  // alert("nfh")
+  //console.log(`${user._id}`);
+  // alert("nfh")
+
+ //console.log("in app.js"+document.getElementById('hello'));
+ document.getElementById('profile-id').value=`${user._id}`
+
+  document.getElementById('profile-email').value=`${user.email}`
+  document.getElementById('profile-name').value=`${user.name}`
+ document.getElementById('profile-cnic').value=`${user.cnic}`
+document.getElementById('profile-phone').value=`${user.mobile}`
+  document.getElementById('profile-pic').innerHTML=`<img src='../userpic/${user.image}' style="width:200px; height:200px;" class="img-fluid" >`
+
+
+function update(){
+ var uemail= document.getElementById('profile-email').value
+  var uname= document.getElementById('profile-name').value
+   var uphone= document.getElementById('profile-phone').value
+  console.log("in"+uemail);
+
+ var uid=`${user._id}`;
+ var email=uemail;
+ var name=uname;
+ var phone=uphone;
+
+ fetch('http://localhost:3000/userprofile', {  
+    method: 'put',  
+    headers: {  
+      'Content-Type': 'application/json'  
+    },  
+     body: JSON.stringify({
+    uid: uid,
+    name:name,
+    email:email,
+    phone:phone
+
+  })
+})
+.then(function(res){
+  return res.json()
+  console.log(res);
+})
+.then(function (data2) { 
+
+const b= JSON.stringify(data2)
+  console.log(b);
+
+localStorage.setItem('prof',b)
+
+  
+}) 
+.catch(function (error) {  
+  console.log('Request failure: ', error);  
+});
+
+}
+
+
+ var pupdate= JSON.parse(localStorage.getItem('prof'));
+
+console.log("hello",pupdate);
+document.getElementById('profile-name').value=`${pupdate.success.name}`
+ document.getElementById('profile-email').value=`${pupdate.success.email}`
+document.getElementById('profile-phone').value=`${pupdate.success.mobile}`
+
+ </script>
+
+</html>
